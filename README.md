@@ -10,24 +10,24 @@ Restart the docker, visit http://localhost:7080 or http://<ip.address>:7080/ to 
 
 ## Run it
 ```
-docker run \
+docker run -d \
         --name unifi-video \
         --cap-add SYS_ADMIN \
         --cap-add DAC_READ_SEARCH \
+        --security-opt apparmor:unconfined \
         -p 7443:7443 \
         -p 7445:7445 \
         -p 7446:7446 \
         -p 7447:7447 \
         -p 7080:7080 \
         -p 6666:6666 \
-        -v <data dir>:/var/lib/unifi-video \
-        -v <videos dir>:/usr/lib/unifi-video/data/videos \
-        -v <logs dir>:/var/log/unifi-video \
-        -e TZ=America/Los_Angeles \
+        -v /srv/unifi-video/data:/var/lib/unifi-video \
+        -v /srv/unifi-video/videos:/usr/lib/unifi-video/data/videos \
+        -v /srv/unifi-video/logs:/var/log/unifi-video \
+        -e TZ=Europe/Zurich \
         -e PUID=99 \
         -e PGID=100 \
-        -e DEBUG=1 \
-        pducharme/unifi-video-controller
+        unifi-video
 ```
 
 ## tmpfs mount error
