@@ -1,12 +1,6 @@
 # unifi-video-controller
 
-This docker image runs the unifi-video controller on Ubuntu. Originally intended for Unraid 6.x, it should run fine anywhere.
-
-Set your local data, videos and logs directories in the `docker run` command. You can also specify a custom user and group for the daemon to run as.
-
-The first run should create the file `system.properties` in your data directory. If it doesn't, create it yourself. *You* must add `is_default=true` as the first line in order to force the wizard to run.
-
-Restart the docker, visit http://localhost:7080 or http://<ip.address>:7080/ to start the Unifi Video wizard.
+This docker image runs the UniFi Video controller. It's a fork from pducharme/UniFi-Video-Controller :+1:
 
 ## Run it
 ```
