@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER zumbrunnen@gmail.com
 
-ENV UNIFI_VIDEO_VERSION 3.8.1
+ENV UNIFI_VIDEO_VERSION 3.8.5
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD unifi-video.patch /unifi-video.patch
