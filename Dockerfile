@@ -1,14 +1,14 @@
 FROM ubuntu:latest
 MAINTAINER zumbrunnen@gmail.com
 
-ENV UNIFI_VIDEO_VERSION 3.9.6
+ENV UNIFI_VIDEO_VERSION 3.9.7
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD unifi-video.patch /unifi-video.patch
 ADD run.sh /run.sh
 
 RUN apt-get update && \
-  apt-get install -y apt-utils && \
+  apt-get install -y apt-utils libcap2 && \
   apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
   apt-get install -y wget sudo moreutils patch psmisc lsb-release && \
   apt-get install -y mongodb-server openjdk-8-jre-headless jsvc && \
