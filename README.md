@@ -2,7 +2,7 @@
 
 This docker image runs the UniFi Video controller. It's a fork from pducharme/UniFi-Video-Controller :+1:
 
-## Run it
+## Run it
 
 ```
 docker run -d \
