@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 LABEL maintainer="David Zumbrunnen <zumbrunnen@gmail.com>"
 
-ENV UNIFI_VIDEO_VERSION 3.9.10
+ENV UNIFI_VIDEO_VERSION 3.9.11
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD unifi-video.patch /unifi-video.patch
