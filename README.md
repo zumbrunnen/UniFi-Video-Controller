@@ -24,5 +24,5 @@ docker run -d \
         -e TZ=Europe/Zurich \
         -e PUID=99 \
         -e PGID=100 \
-        zumbrunnen/unifi-video:latest
+        registry.gitlab.com/zumbrunnen/unifi-video:latest
 ```
