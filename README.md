@@ -20,7 +20,7 @@ docker run -d \
         -p 7442:7442 \
         -p 7004:7004/udp \
         -v /srv/unifi-video/data:/var/lib/unifi-video \
-        -v /srv/unifi-video/logs:/var/log/unifi-video \
+        -v /srv/unifi-video/videos:/var/lib/unifi-video/videos \
         -e TZ=Europe/Zurich \
         -e PUID=99 \
         -e PGID=100 \
