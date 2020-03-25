@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PUID 99
 ENV PGID 100
 ENV CREATE_TMPFS no
+ENV UMASK 002
 
 ADD unifi-video.patch /unifi-video.patch
 ADD run.sh /run.sh

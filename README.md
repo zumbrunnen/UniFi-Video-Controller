@@ -8,6 +8,7 @@ This docker image runs the UniFi Video controller. It's a fork from pducharme/Un
 docker run -d \
         --name unifi-video \
         --cap-add DAC_READ_SEARCH \
+        --security-opt apparmor:unconfined \
         --tmpfs /var/cache/unifi-video \
         -v /srv/unifi-video/data:/var/lib/unifi-video \
         -v /srv/unifi-video/videos:/var/lib/unifi-video/videos \
