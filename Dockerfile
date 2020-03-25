@@ -1,8 +1,11 @@
 FROM ubuntu:bionic
 LABEL maintainer="David Zumbrunnen <zumbrunnen@gmail.com>"
 
-ENV UNIFI_VIDEO_VERSION 3.10.8
+ENV UNIFI_VIDEO_VERSION 3.10.11
 ENV DEBIAN_FRONTEND noninteractive
+ENV PUID 99
+ENV PGID 100
+ENV CREATE_TMPFS no
 
 ADD unifi-video.patch /unifi-video.patch
 ADD run.sh /run.sh
@@ -18,7 +21,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     wget -q https://dl.ubnt.com/firmwares/ufv/v${UNIFI_VIDEO_VERSION}/unifi-video.Ubuntu18.04_amd64.v${UNIFI_VIDEO_VERSION}.deb && \
     dpkg -i unifi-video.Ubuntu18.04_amd64.v${UNIFI_VIDEO_VERSION}.deb && \
-    patch -N /usr/sbin/unifi-video /unifi-video.patch && \
+    patch -lN /usr/sbin/unifi-video /unifi-video.patch && \
     rm /unifi-video.Ubuntu18.04_amd64.v${UNIFI_VIDEO_VERSION}.deb && \
     rm /unifi-video.patch && \
     chmod 755 /run.sh
@@ -29,7 +32,7 @@ VOLUME /var/lib/unifi-video /var/log/unifi-video
 EXPOSE 7080/tcp 7443/tcp
 
 # Video over HTTP(S), RTSP, NVR Discovery
-EXPOSE 7445/tcp 7446/tcp 7447/tcp 10001/udp
+EXPOSE 1935/tcp 7444/tcp 7445/tcp 7446/tcp 7447/tcp 10001/udp
 
 # Inbound Camera Streams, Camera Management (NVR Side)
 EXPOSE 6666/tcp 7442/tcp
